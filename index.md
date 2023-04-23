@@ -1,4 +1,4 @@
-# Lab Report
+# Lab Report1
 ## Step 1 VSCode 
 Firstly, I need an application for all of my later cse 15l lab work, so I download the VSCode from  [Here](https://code.visualstudio.com/) and follow the instruction on this website to run the installing package on my MAC OS system. 
 After I changes the background color and download numbers of plug-in, it look something like this:
@@ -31,7 +31,8 @@ As the picture show above:
 * I can print the file by using `cat` and it print "Hello!"
 * I also try to use `cp` command which can takes in a file and a directory, so this command can copy the file to the directory, the command doesn't work in the picture because I forget to include the file name. 
 Pretty cool!
-
+---
+# Lab Report2
 # Part1
 Here is the code for my StringServer:
 ![image1](Assets/lab2/image1.png)
