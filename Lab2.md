@@ -43,7 +43,11 @@ Here is the screenshots of using `add-message`
 
 * `Main` method, `Server.start` method, and `handleRequest` method in Handler class are called.
 * Essentially I am called the main method in StringServer class. I pass in 4000 as the local host server number this argument is used for port for later method. In the main method, I passed in a new `SearchEngine` object and `port`(a integer(input argument of main method)) as  input for Server object `start` method. Inside the Server.start method, `server.createContext` is called and it takes a String `path` and URLHandler Object `handler` as arguments.
-* In my `handleRequest` method, `this.lst` will change everything when the new request has correct query. `this.lst` is a ArrayList that store all of the queries that requested before. And everytime we called the function, it will return them as a String that seperated in different lines.
+* The SearchEngine class implements the URLHandler interface, which defines a method handleRequest that takes a URI object as input and returns a string response. The handleRequest method checks if the path of the URL contains the string "/add-message". If it does, it splits the query string by the equals sign ("=") and checks if the first parameter is "s". If it is, the second parameter is added to the lst ArrayList. Finally, the method returns a string that joins all elements in lst with a newline character.
+
+* In the StringServer class, the main method takes an array of command-line arguments. If there are no arguments, the program prints an error message and exits. Otherwise, it parses the first argument as an integer and sets it as the port number for the server. It then starts the server on the specified port, using an instance of the SearchEngine class as the handler for incoming requests.
+
+* When a client sends a request to the server, the Server class receives the request and passes it to the handleRequest method of the specified handler (in this case, an instance of the SearchEngine class). The handleRequest method extracts the path and query string from the URI object and uses them to determine how to handle the request. Specifically, it checks if the path contains the string "/add-message" and if the first parameter of the query string is "s". If both conditions are true, it adds the second parameter to the lst ArrayList. Finally, it returns a string that joins all elements in lst with a newline character.
 
 # Part2
 ## Failure-inducing input for `reverseInPlace()` function:
