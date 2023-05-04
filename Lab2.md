@@ -1,6 +1,41 @@
 # Part1
 Here is the code for my StringServer:
-![image1](Assets/lab2/image1.png)
+```
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+public class SearchEngine implements URLHandler{
+    ArrayList<String> lst = new ArrayList<>();
+    public SearchEngine(){
+        this.lst = lst;
+    }
+    public String handleRequest(URI url){
+        if (url.getPath().contains("/add-message")){
+            String[] parameters = url.getQuery().split("=");
+            if(parameters[0].equals("s")){
+                this.lst.add(parameters[1]);
+            }
+            return String.join("\n",this.lst);
+        }else{
+            return "404 nothing found";
+        }
+
+        
+    }
+}
+class StringServer {
+    public static void main(String[] args) throws IOException {
+        if(args.length == 0){
+            System.out.println("Missing port number! Try any number between 1024 to 49151");
+            return;
+        }
+
+        int port = Integer.parseInt(args[0]);
+
+        Server.start(port, new SearchEngine());
+    }
+}
+```
 Here is the screenshots of using `add-message`
 ![image2](Assets/lab2/image2.png)
 ![image3](Assets/lab2/image3.png)
