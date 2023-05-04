@@ -47,7 +47,7 @@ Here is the screenshots of using `add-message`
 
 * In the StringServer class, the main method takes an array of command-line arguments. If there are no arguments, the program prints an error message and exits. Otherwise, it parses the first argument as an integer and sets it as the port number for the server. It then starts the server on the specified port, using an instance of the SearchEngine class as the handler for incoming requests.
 
-* When a client sends a request to the server, the Server class receives the request and passes it to the handleRequest method of the specified handler (in this case, an instance of the SearchEngine class). The handleRequest method extracts the path and query string from the URI object and uses them to determine how to handle the request. Specifically, it checks if the path contains the string "/add-message" and if the first parameter of the query string is "s". If both conditions are true, it adds the second parameter to the lst ArrayList. Finally, it returns a string that joins all elements in lst with a newline character.
+* When a client sends a request to the server, the Server class receives the request and passes it to the handleRequest method of the specified handler. The handleRequest method extracts the path and query string from the URI object and uses them to determine how to handle the request. Specifically, it checks if the path contains the string "/add-message" and if the first parameter of the query string is "s". If both conditions are true, it adds the second parameter to the lst ArrayList. Finally, it returns a string that joins all elements in lst with a newline character.
 
 # Part2
 ## Failure-inducing input for `reverseInPlace()` function:
