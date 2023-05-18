@@ -3,7 +3,7 @@
 Here is the path to technical folder: `/Users/Wally/Desktop/CSE15L/docsearch/technical`
 
 ## `-maxdepth levels`
-The -maxdepth option is used with the find command in Linux to specify the maximum depth of the directory hierarchy to search. It limits the search to a certain level of directories, starting from the starting directory.(Description from ChatGPT)
+The -maxdepth option is used with the find command in Linux to specify the maximum depth of the directory hierarchy to search. It limits the search to a certain level of directories, starting from the starting directory.(Description from ChatGPT, Prompt: What does find -maxdepth levels does and how to use it?)
 Input:
 `find /Users/Wally/Desktop/CSE15L/docsearch/technical -maxdepth 1 -name "#.txt"`
 Output:
@@ -25,7 +25,7 @@ In the first example, because there is no txt file in the current directory( max
 In the second example, there are tons of txt file when the depth = 2, so it returns a lot of txt file. 
 
 ## `-mindepth levels`
-The -mindepth option is used with the find command in Linux to specify the minimum depth of the directory hierarchy to search. It allows you to limit the search to directories that are at a certain level or deeper, starting from the starting directory.(Description from ChatGPT)
+The -mindepth option is used with the find command in Linux to specify the minimum depth of the directory hierarchy to search. It allows you to limit the search to directories that are at a certain level or deeper, starting from the starting directory.(Description from ChatGPT, Prompt: What does find -mindepth levels does and how to use it?)
 
 Input:
 `find /Users/Wally/Desktop/CSE15L/docsearch/technical -mindepth 2 -name "#.txt"`
@@ -50,7 +50,7 @@ In the second example, there are no txt file in the depth >= 4, so nothing retur
 
 
 ## `-empty`
-The -empty option is used with the find command in Linux to search for empty files or directories. It returns a list of all files or directories that are empty. (Description from ChatGPT)
+The -empty option is used with the find command in Linux to search for empty files or directories. It returns a list of all files or directories that are empty. (Description from ChatGPT, Prompt: What does find -empty does and how to use it?)
 
 Input:
 `find /Users/Wally/Desktop/CSE15L/docsearch/technical -type f -empty`
@@ -60,11 +60,18 @@ Input:
 `find /Users/Wally/Desktop/CSE15L/docsearch/technical -type d -empty`
 Output:
 
+Input:
+`mkdir /Users/Wally/Desktop/CSE15L/docsearch/technical/empty_folder`
+`find /Users/Wally/Desktop/CSE15L/docsearch/technical -type d -empty`
+Output:
+`/Users/Wally/Desktop/CSE15L/docsearch/technical/empty_folder`
+
 In the first example, we are looking for if there are empty file(`-type f`) in technical folder, and it return nothing indicating there are no empty file. All of the file contain something
 In the second example, we are looking for if there are empty directory, such as empty folder, and it return nothing indicating there are no empty file. All of the folder contain some files. 
+In the third example, we create a new empty directory called `empty_folder` inside of `technical` directory. Then we find the empty directory using `find -empty` inside technical, as we expected, we find the new `empty_folder` we created. This shows that this command-line options displays empty folders when present.
 
 ## `-mmin n`
-The -mmin n option is used with the find command in Linux to search for files and directories that were modified n minutes ago. It allows you to search for files based on their modification time. (Description from ChatGPT)
+The -mmin n option is used with the find command in Linux to search for files and directories that were modified n minutes ago. It allows you to search for files based on their modification time. (Description from ChatGPT, Prompt: What does find -mmin n does and how to use it?)
 
 Input:
 `find /Users/Wally/Desktop/CSE15L/docsearch/technical -type d -mmin +30`
