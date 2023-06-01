@@ -3,9 +3,12 @@
 ## Part 1
 Benji, a first year Math CS major student attend CSE15L this quarter and made a post on Eds because he faced an error that he can not resolve. On the Eds, he wrote:
 
+
 ```
 I am doing my Lab 6 for CSE15L. I need to write a bash file that takes a github repo http link as input to grade the student work, but somehow my bash file having this odd output when I am running this bash to grade https://github.com/ucsd-cse15l-f22/list-methods-compile-error, which has a syntax error of a missing semicolon. I suppose to have an compile error, but instead, this is what my terminal output look like. All the test is passed somehow...
 ```
+
+
 ![image1](Assets/lab5/image1.png)
 
 
