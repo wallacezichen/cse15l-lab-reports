@@ -29,6 +29,8 @@ Benji suddenly realized that he need to check if there already a fold called `gr
 
 * The contents of each file before fixing the bug
 grade.sh file:
+
+
         ```
         CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
         # rm -rf student-submission                     <------------------ add these two lines to resolve the bug
