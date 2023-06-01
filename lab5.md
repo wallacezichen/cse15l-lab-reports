@@ -29,71 +29,70 @@ Benji suddenly realized that he need to check if there already a fold called `gr
 
 * The contents of each file before fixing the bug
 grade.sh file:
-```
-CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
-# rm -rf student-submission                     <------------------ add these two lines to resolve the bug
-# rm -rf grading-area                           <------------------
-mkdir grading-area
-git clone $1 student-submission
-echo 'Finished cloning'
+        ```
+        CPATH='.:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar'
+        # rm -rf student-submission                     <------------------ add these two lines to resolve the bug
+        # rm -rf grading-area                           <------------------
+        mkdir grading-area
+        git clone $1 student-submission
+        echo 'Finished cloning'
 
-# Specify the expected file name
-expected_file="ListExamples.java"
+        # Specify the expected file name
+        expected_file="ListExamples.java"
 
-#Check if the file exist
-if [ ! -f "student-submission/$expected_file" ]; then
-    echo "The submitted file does not exist in the repository."
-    exit 1
-fi
+        #Check if the file exist
+        if [ ! -f "student-submission/$expected_file" ]; then
+            echo "The submitted file does not exist in the repository."
+            exit 1
+        fi
 
-# If all checks pass, the submitted file is correct
-echo "Submitted file is correct."
+        # If all checks pass, the submitted file is correct
+        echo "Submitted file is correct."
 
-#Third Step
-grading_area="grading-area"
+        #Third Step
+        grading_area="grading-area"
 
-#copy file to folder
-cp -r "student-submission"/$expected_file "$grading_area"
-cp -r TestListExamples.java "$grading_area"
-if [ ! -f "grading-area/$expected_file" ]; then
-    echo "Grading area can not find student's submission."
-    exit 1
-fi
-echo "Student file in grading area!"
-if [ ! -f "grading-area"/TestListExamples.java ]; then
-    echo "Grading area can not find JUnit."
-    exit 1
-fi
-echo "JUnit file in grading area!"
-cp -r lib grading-area
-echo "lib moved to grading-area"
+        #copy file to folder
+        cp -r "student-submission"/$expected_file "$grading_area"
+        cp -r TestListExamples.java "$grading_area"
+        if [ ! -f "grading-area/$expected_file" ]; then
+            echo "Grading area can not find student's submission."
+            exit 1
+        fi
+        echo "Student file in grading area!"
+        if [ ! -f "grading-area"/TestListExamples.java ]; then
+            echo "Grading area can not find JUnit."
+            exit 1
+        fi
+        echo "JUnit file in grading area!"
+        cp -r lib grading-area
+        echo "lib moved to grading-area"
 
-#locate to grading folder
-cd "$grading_area"
+        #locate to grading folder
+        cd "$grading_area"
 
-#compile
-javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java > compile_output.txt 2>&1
+        #compile
+        javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java > compile_output.txt 2>&1
 
-# Check if compilation was successful
-if [ $? -ne 0 ]; then
-    echo "Compilation failed. Please check your code and try again."
-    cat compile_output.txt
-    exit 1
-fi
-echo "Successfully compiled"
+        # Check if compilation was successful
+        if [ $? -ne 0 ]; then
+            echo "Compilation failed. Please check your code and try again."
+            cat compile_output.txt
+            exit 1
+        fi
+        echo "Successfully compiled"
 
-java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > junit_output.txt
-echo "Successfully ran JUnit Test"
+        java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > junit_output.txt
+        echo "Successfully ran JUnit Test"
 
-# Extract the test results
-score=$(tail -n 2 junit_output.txt | head -n 1)
+        # Extract the test results
+        score=$(tail -n 2 junit_output.txt | head -n 1)
 
-# Display the grade
-echo "The is the result of this student's implementation score:"
-echo "$score"
-exit 0
-
-```
+        # Display the grade
+        echo "The is the result of this student's implementation score:"
+        echo "$score"
+        exit 0
+        ```
 * The full command line (or lines) you ran to trigger the bug
 `bash grade.sh https://github.com/ucsd-cse15l-f22/list-methods-compile-error`
 
@@ -102,7 +101,8 @@ By adding the `rm -rf student-submission` and `rm -rf grading-area` on line 2 an
 
 
 
-
+Last Part
+I learned so much useful information from CSE15L this quarter. One of the most useful thing is remotely connect to other computer and do the command through linux. I think in the future, maybe I will need to use super computers to run deep learning projects. In those cases, using vim to edit code and ssh to access super computers are handful for those projects. It is also pretty cool to learn about bash script and multiply useful linux command such as `find`,`grep`, and `rm`. 
 
 
 
